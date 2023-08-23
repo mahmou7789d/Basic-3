@@ -1,5 +1,19 @@
-Write a program that takes a number and a bit number from
-the user, clear the required bit, then print the new value.
+/*
+==========================================================================================
+Diploma     :   BASIC03 - Eng. Amgad Samir
+Target      :   C Operators & If Condition
+Name        :   Assignment 2 - Lecture 2 - Problem number 1
+Program     :   Write a program that takes a number and a bit number from the user, clear the required bit, then print the new value.
+Author      :   Mahmoud Hamed
+==========================================================================================
+Description :   (1) Write a program that takes a number and a bit number from the user, clear the required bit, then print the new value.
++
+==========================================================================================
+*/
+
+/*-------------------------          Approach 1                  ------------------------*/
+/*---------------------------------------------------------------------------------------*/
+
 
 #include <stdio.h>
 
@@ -30,7 +44,8 @@ int main() {
     return 0; // Return success
 }
 
-//----------------------------------------------------------------------------------------------------------------
+/*-------------------------          Approach 2                  ------------------------*/
+/*---------------------------------------------------------------------------------------*/
 #include <stdio.h>
 
 int main() {

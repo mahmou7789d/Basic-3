@@ -1,19 +1,30 @@
-// Write a program that calculates the required heater 
-// activation time according to the input temperature of 
-// water.
-// - if input temperature is from 0 to 30, then required 
-// heating time = 7 mins.
-// - if input temperature is from 30 to 60, then required 
-// heating time = 5 mins.
-// - if input temperature is from 60 to 90, then required 
-// heating time = 3 mins.
-// - if input temperature is more than 90, then required 
-// heating time = 1 mins.
-// - if temperature is invalid (more than 100), display
-// "Invalid input"
+/*
+==========================================================================================
+Diploma     :   BASIC03 - Eng. Amgad Samir
+Target      :   C Switch & Ternary & ASCII
+Name        :   Assignment 3 - Lecture 3 - Problem number 3
+Program     :   Write a program that calculates the required heater activation time according to the input temperature of water.
+Author      :   Mahmoud Hamed
+==========================================================================================
+Description :   (4) Write a program that calculates the required heater 
+                    activation time according to the input temperature of 
+                    water.
+                    - if input temperature is from 0 to 30, then required 
+                    heating time = 7 mins.
+                    - if input temperature is from 30 to 60, then required 
+                    heating time = 5 mins.
+                    - if input temperature is from 60 to 90, then required 
+                    heating time = 3 mins.
+                    - if input temperature is more than 90, then required 
+                    heating time = 1 mins.
+                    - if temperature is invalid (more than 100), display
+                    "Invalid input"
++
+==========================================================================================
+*/
 
-
-
+/*-------------------------          Approach 1                  ------------------------*/
+/*---------------------------------------------------------------------------------------*/
 #include <stdio.h>
 
 int main() {
@@ -40,7 +51,9 @@ int main() {
 
     return 0; // Exit the program successfully
 }
-//-----------------------------------------------------------------------------------------
+
+/*-------------------------          Approach 2                  ------------------------*/
+/*---------------------------------------------------------------------------------------*/
 
 
 #include <stdio.h>
@@ -78,7 +91,9 @@ int main() {
     return 0;
 }
 
-//-------------------------------------------------------------------------------------------
+
+/*-------------------------          Approach 3                  ------------------------*/
+/*---------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 
@@ -101,12 +116,13 @@ int main() {
 
     return 0;
 }
-
+/********************************* Ecplaination  Approach 3     ***************************
 // heatingTime = (inputTemperature >= 0 && inputTemperature <= 30) ? 7 :
 //               (inputTemperature > 30 && inputTemperature <= 60) ? 5 :
 //               (inputTemperature > 60 && inputTemperature <= 90) ? 3 :
 //               (inputTemperature > 90 && inputTemperature <= 100) ? 1 : -1;
-// This is a single-line expression that uses the ternary operator ? : repeatedly to assign the appropriate value to the heatingTime variable based on the input temperature.
+// This is a single-line expression that uses the ternary operator ? : repeatedly to assign the appropriate value 
+to the heatingTime variable based on the input temperature.
 
 // (inputTemperature >= 0 && inputTemperature <= 30) ? 7 :
 // This is the first condition. It checks if the inputTemperature is greater than or equal to 0 and less than or equal to 30. 
@@ -132,7 +148,9 @@ int main() {
 // This compact use of the ternary operator is equivalent to writing multiple if-else statements and can be handy when you want to make 
 // the code concise and readable. However, in some cases, using nested ternary operators may reduce code readability, 
 // so it's essential to use them judiciously to maintain code clarity.
-//-------------------------------------------------------------------------------------------
+
+/*-------------------------          Approach 4                  ------------------------*/
+/*---------------------------------------------------------------------------------------*/
 #include <stdio.h>
 
 int main() {

@@ -1,5 +1,18 @@
-// Write a C program that takes a number and a bit number from 
-// the user, toggle the required bit, then print the new value
+/*
+==========================================================================================
+Diploma     :   BASIC03 - Eng. Amgad Samir
+Target      :   C Operators & If Condition
+Name        :   Assignment 2 - Lecture 2 - Problem number 2
+Program     :   Write a C program that takes a number and a bit number from  the user, toggle the required bit, then print the new value
+Author      :   Mahmoud Hamed
+==========================================================================================
+Description :   (2) Write a C program that takes a number and a bit number from  the user, toggle the required bit, then print the new value
++
+==========================================================================================
+*/
+
+/*-------------------------          Approach 1                  ------------------------*/
+/*---------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 
@@ -34,7 +47,9 @@ int main() {
 // (1 << bitNumber) creates a value where only the bit at bitNumber is set (all other bits are 0). 
 // XORing this value with the original number toggles the selected bit.
 
-// ---------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------*/
+/*-------------------------          Approach 2                  ------------------------*/
+/*---------------------------------------------------------------------------------------*/
 #include <stdio.h>
 
 int main() {

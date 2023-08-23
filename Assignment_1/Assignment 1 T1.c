@@ -25,7 +25,7 @@
 /*
 ==========================================================================================
 Diploma     :   BASIC03 - Eng. Amgad Samir
-Target      :   C Pointers
+Target      :   C Variable & Operators
 Name        :   Assignment 1 - Lecture 1 - Problem number 1
 Program     :   Write a program that takes two integers from the user and print the results of this equation:
                 Result = ((num1 + num2) * 3) – 10

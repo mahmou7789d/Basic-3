@@ -1,5 +1,19 @@
-// Write a C program that takes a number and a bit number from 
-// the user, then print the value of this bit in this number
+/*
+==========================================================================================
+Diploma     :   BASIC03 - Eng. Amgad Samir
+Target      :   C Operators & If Condition
+Name        :   Assignment 2 - Lecture 2 - Problem number 3
+Program     :   Write a C program that takes a number and a bit number from the user, then print the value of this bit in this number
+Author      :   Mahmoud Hamed
+==========================================================================================
+Description :   (3) Write a C program that takes a number and a bit number from the user, then print the value of this bit in this number
+
++
+==========================================================================================
+*/
+
+/*-------------------------          Approach 1                  ------------------------*/
+/*---------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 
@@ -23,8 +37,8 @@ int main() {
     return 0;
 }
 
-//---------------------------------------
-
+/*-------------------------          Approach 2                  ------------------------*/
+/*---------------------------------------------------------------------------------------*/
 #include <stdio.h>
 
 int main() {
