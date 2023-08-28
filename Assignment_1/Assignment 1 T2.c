@@ -25,7 +25,7 @@
 /*
 ==========================================================================================
 Diploma     :   BASIC03 - Eng. Amgad Samir
-Target      :   C Pointers
+Target      :   C Variable & Operators
 Name        :   Assignment 1 - Lecture 1 - Problem number 2
 Program     :   Write a program that print your name and your grade in a new line.
 Author      :   Mahmoud Hamed

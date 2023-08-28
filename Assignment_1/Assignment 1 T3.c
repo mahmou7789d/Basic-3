@@ -26,7 +26,7 @@
 /*
 ==========================================================================================
 Diploma     :   BASIC03 - Eng. Amgad Samir
-Target      :   C Pointers
+Target      :   C Variables & Operators
 Name        :   Assignment 1 - Lecture 1 - Problem number 3
 Program     :   Write a program for converting temperature from degrees Celsius to degrees Fahrenheit, given the formula:
                 F = C x 9/5 + 32

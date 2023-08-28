@@ -22,107 +22,83 @@
 //.......TTTTTT...............aaaaaaaaaaaaaaa..........ssssssssssssss...........kkkkkk...kkkkkk.................444444....
 //.......TTTTTT................aaaaaaaaaaaaaa...........sssssssssss.............kkkkkk....kkkkkk................444444....
 //........................................................................................................................
-
 /*
 ==========================================================================================
 Diploma     :   BASIC03 - Eng. Amgad Samir
-Target      :   C Loops
-Name        :   Assignment 4 - Lecture 4 - Problem number 4
-Program     :   Write a C program to calculate the power of a number.
-                The number and its power are input from user.
+Target      :   C Pointers
+Name        :   Assignment 12 - Lecture 12 - Problem number 4
+Program     :   C function to get the value of the smallest element in array using pointers.
 Author      :   Mahmoud Hamed
 ==========================================================================================
-Description :   (4) Write a C program to calculate the power of a number.
-                    The number and its power are input from user.
+Description :   (4) C function to get the value of the smallest element in array using pointers.
 
 +
 ==========================================================================================
 */
 
-/*-------------------------        Approach 1:                   ------------------------*/
+/*-------------------------          Approach 1 :                ------------------------*/
 /*---------------------------------------------------------------------------------------*/
-
 #include <stdio.h>
-#include <stdbool.h> // Include the necessary header for using 'bool' type
+
+int FindSmallest(const int *arr, int size) ;
 
 int main() {
-    int base, exponent;
-    long long int result = 1;
+    const int size = 6;
+    int array[size]; // Declare an array of size 6 to store elements
+    int *ptr = array; // Declare a pointer 'ptr' to point to the array
+    printf("Enter the elements of the array:\n");
 
-    printf("Enter the base: ");
-    if (scanf("%d", &base) != 1) {
-        printf("Invalid input for base.\n");
-        return 1; // Return a non-zero value to indicate an error
+    // Input each element of the array using pointer arithmetic
+    for (int i = 0; i < size; i++) {
+        scanf("%d", ptr + i);
     }
-
-    printf("Enter the exponent: ");
-    if (scanf("%d", &exponent) != 1) {
-        printf("Invalid input for exponent.\n");
-        return 1; // Return a non-zero value to indicate an error
-    }
-    // Calculate the power using a loop
-    for (int i = 0; i < exponent; i++) {
-        result *= base;
-    }
-
-    printf("%d raised to the power of %d is %lld\n", base, exponent, result);
-
-    return 0;
+    /**
+     * // Input each element of the array using a pointer-to-pointer
+     * for (int **ptr = &array; *ptr < array + size; (*ptr)++) 
+     * {
+     *     scanf("%d", *ptr);
+     * }
+     * */
+    // Call the function to find the smallest element using the array and store the result in 'smallest'
+    int smallest = FindSmallest(array, size);
+    
+    // Print the smallest element in the array
+    printf("The smallest element in the array is: %d\n", smallest);
+    
+    return 0; // Exit the program
 }
-/***************************** tracing code **************************/
-// Enter the base: 2
-// Enter the exponent: -1
-// 2 raised to the power of -1 is 1
+// Function to find the smallest element in an array using pointers
+int FindSmallest(const int *arr, int size) 
+{
+    int smallest = *arr; // Initialize smallest with the first element
+    arr++; // Move the pointer to the next element
 
-// the above code can't handle the negative exponent cases to i write the following code :
-//-----------------------------------------------------------------------------------------------------------------------------
-
-#include <stdio.h>
-
-int main() {
-    int base, exponent;
-    double result = 1.0;
-
-    // Prompt the user to input the base
-    printf("Enter the base: ");
-    
-    // Read the base value from the user and check for input errors
-    if (scanf("%d", &base) != 1) {
-        printf("Invalid input for base.\n");
-        return 1; // Return a non-zero value to indicate an error
-    }
-
-    // Prompt the user to input the exponent
-    printf("Enter the exponent: ");
-    
-    // Read the exponent value from the user and check for input errors
-    if (scanf("%d", &exponent) != 1) {
-        printf("Invalid input for exponent.\n");
-        return 1; // Return a non-zero value to indicate an error
-    }
-    // Check if the exponent is non-negative
-    if (exponent >= 0) 
+    // Iterate through the rest of the elements using pointers
+    for (int i = 1; i < size; i++) 
     {
-        // If the exponent is non-negative, calculate the power using multiplication
-        // Initialize a loop counter 'i' to 0, and repeat the loop until 'i' is less than 'exponent'
-        for (int i = 0; i < exponent; i++) 
-        {
-            // Multiply the 'result' by the 'base' for each iteration of the loop
-            result *= base;
+        if (*arr < smallest) 
+        {  
+            smallest = *arr; // Update smallest if a smaller element is found
         }
-    } 
-    else 
-    {
-        // If the exponent is negative, calculate the power using division (for fractions)
-        // Initialize a loop counter 'i' to 0, and repeat the loop until 'i' is less than the absolute value of 'exponent'
-        for (int i = 0; i < -exponent; i++) 
-        {
-            // Divide the 'result' by the 'base' for each iteration of the loop
-            result /= base;
-        }
+        arr++; // Move the pointer to the next element
     }
-    // Display the calculated result: base^exponent
-    printf("%d raised to the power of %d is %lf\n", base, exponent, result);
+    return smallest; // Return the smallest element
+}
 
-    return 0;
+
+int Findbiggest(const int *arr, int size) 
+{
+    int biggest = *arr; // Initialize smallest with the first element
+    arr++; // Move the pointer to the next element
+
+    // Iterate through the rest of the elements using pointers
+    for (int i = 1; i < size; i++) 
+    {
+        if (*arr > biggest) 
+        {  
+            biggest = *arr; // Update smallest if a smaller element is found
+        }
+        arr++; // Move the pointer to the next element
+    }
+    return biggest; // Return the smallest element
 }

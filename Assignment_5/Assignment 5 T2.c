@@ -1,3 +1,4 @@
+
 //........................................................................................................................
 //.TTTTTTTTTTTTTTTTTT...........................................................kkkkkk......................222222222.....
 //.TTTTTTTTTTTTTTTTTT...........................................................kkkkkk....................222222222222....
@@ -25,113 +26,91 @@
 /*
 ==========================================================================================
 Diploma     :   BASIC03 - Eng. Amgad Samir
-Target      :   C Loops
-Name        :   Assignment 4- Lecture 4 - Problem number 2
-Program     :   Write a  C program that reads a positive integer and checks if it is a perfect square.
+Target      :   C Pointers
+Name        :   Assignment 12 - Lecture 12 - Problem number 2
+Program     :   C Function to act as simple calculator 
 Author      :   Mahmoud Hamed
 ==========================================================================================
-Description :   (2) Write a  C program that reads a positive integer and checks if it is a perfect square.
+Description :   (2) Write a C Function that returns the addition or subtraction 
+					or multiplication or division for two numbers. The function 
+					should take the required operation and two numbers as 
+					arguments. It also should check that the input operation is one 
+					of those operation that mentioned before and if not it should 
+					return error. The function should be implemented using switch case 
 
 +
 ==========================================================================================
 */
 
-/*-------------------------          Approach 1                  ------------------------*/
+/*-------------------------                                      ------------------------*/
 /*---------------------------------------------------------------------------------------*/
 
-#include <stdio.h>
-
-int main() {
-    int number;
-
-    // Read the positive integer from the user
-    printf("Enter a positive integer: ");
-    scanf("%d", &number);
-
-    if (number <= 0) {
-        printf("Invalid input. Please enter a positive integer.\n");
-    } else {
-        int isPerfectSquare = 0;
-        
-        // Loop to check for perfect squares
-        for (int i = 1; i <= number; i++) {
-            if (i * i == number) {
-                isPerfectSquare = 1;
-                break;
-            }
-        }
-
-        if (isPerfectSquare) {
-            printf("%d is a perfect square.\n", number);
-        } else {
-            printf("%d is not a perfect square.\n", number);
-        }
-    }
-
-    return 0;
-}
-
-/*-------------------------          Approach 2                  ------------------------*/
-/*---------------------------------------------------------------------------------------*/
-#include <stdio.h>
-#include <math.h>
-
-int main() {
-    int number;
-    
-    // Read the positive integer from the user
-    printf("Enter a positive integer: ");
-    scanf("%d", &number);
-
-    if (number <= 0) {
-        printf("Invalid input. Please enter a positive integer.\n");
-        return 0;
-    }
-    
-    // Find the square root of the number
-    double squareRoot = sqrt(number);
-
-    // Check if the square root is an integer
-    if ((int)squareRoot * (int)squareRoot == number) {
-        printf("%d is a perfect square.\n", number);
-    } else {
-        printf("%d is not a perfect square.\n", number);
-    }
-
-    return 0;
-}
-
-/*-------------------------          Approach 3                  ------------------------*/
-/*---------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
+/* declration of Small_Cal function */
+int Small_Cal(char opreation,int num1,int num2);
 
-int main() {
-    int number;
-
-    // Read the positive integer from the user
-    printf("Enter a positive integer: ");
-    scanf("%d", &number);
-
-    if (number <= 0) {
-        printf("Invalid input. Please enter a positive integer.\n");
-    } else {
-        // Calculate the integer part of the square root
-        int sqrtNumber = 1;
-        while (sqrtNumber * sqrtNumber < number) {
-            sqrtNumber++;
-        }
-
-        // Check if it is a perfect square
-        if (sqrtNumber * sqrtNumber == number) {
-            printf("%d is a perfect square.\n", number);
-        } else {
-            printf("%d is not a perfect square.\n", number);
-        }
-    }
-
-    return 0;
+int main()
+{
+	char opreation;
+	int result;
+	int Number1;
+	int Number2;	
+	
+	/* ask user to enter Number1 */
+	printf("\nPlease Enter number1   : ");
+	scanf("%d", &Number1);
+	
+	/* ask user to enter Number2 */
+	printf("\nPlease Enter number2   : ");
+	scanf("%d", &Number2);
+	
+	/* ask user to enter opreation */
+	printf("\nPlease Enter opreation : ");
+	scanf(" %c", &opreation);
+	
+	/* call function to do opreation on numbers */
+	/* store result from function to vatiable */
+	result=Small_Cal(opreation,Number1,Number2);
+	
+	/* if to check if opreation done correct or not */ 
+	if(result)
+	{
+		/* print the result of opreation */
+	    printf("\nThe result of (%i) %c (%i)  = %i",Number1,opreation,Number2,result);
+	}
+	else
+	{
+		/* do Nothing */
+	}
+		
+	return 0; 
 }
 
-
-
+/* defination of function to get addition or subtraction or multiplication or division for two numbers. */ 
+int Small_Cal(char opreation,int num1,int num2)
+{
+	int Local_result; 
+	switch(opreation)
+	{
+		
+		case '+' : Local_result=num1+num2;break;
+		case '-' : Local_result=num1-num2;break;
+		case '*' : Local_result=num1*num2;break;
+		case '/' : 
+		if(0==num2)
+		{
+			printf("\n Errorro Divde by zero ");
+			return 0;
+		}
+		else
+		{
+		  Local_result=num1/num2;break;	
+		}
+		default:printf("\n Errorro Enter Vaild opreation  ");break;
+		
+		
+	}
+	return Local_result ;
+	
+}

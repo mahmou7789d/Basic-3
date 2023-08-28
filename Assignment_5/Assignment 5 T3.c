@@ -22,69 +22,86 @@
 //.......TTTTTT...............aaaaaaaaaaaaaaa..........ssssssssssssss...........kkkkkk...kkkkkk...........333333333333....
 //.......TTTTTT................aaaaaaaaaaaaaa...........sssssssssss.............kkkkkk....kkkkkk............33333333......
 //........................................................................................................................
+
 /*
 ==========================================================================================
 Diploma     :   BASIC03 - Eng. Amgad Samir
-Target      :   C Operators & If Condition
-Name        :   Assignment 2 - Lecture 2 - Problem number 3
-Program     :   Write a C program that takes a number and a bit number from the user, then print the value of this bit in this number
+Target      :   C Function
+Name        :   Assignment 5 - Lecture 5 - Problem number 3
+Program     :   write a C Function that display Prime Numbers between Intervals (two numbers).
 Author      :   Mahmoud Hamed
 ==========================================================================================
-Description :   (3) Write a C program that takes a number and a bit number from the user, then print the value of this bit in this number
+Description :   (3) write a C Function that display Prime Numbers between Intervals (two numbers).
 
 +
 ==========================================================================================
 */
 
-/*-------------------------          Approach 1                  ------------------------*/
+/*-------------------------              Approach 1              ------------------------*/
 /*---------------------------------------------------------------------------------------*/
 
+
 #include <stdio.h>
+#include <math.h>
+
+// Function to find and display prime numbers between two intervals
+void primeBetweenInterval(int, int);
 
 int main() {
-    int number, bitNumber;
-    int BitValue;
+    int num1, num2;
 
-    // Get the number from the user
-    printf("Enter a number: ");
-    scanf("%d", &number);
+    printf("Enter the two numbers: ");
 
-    // Get the bit number from the user
-    printf("Enter the bit number: ");
-    scanf("%d", &bitNumber);
-
-    
-    BitValue=(number >> bitNumber) & 1;
-    // Extract and print the value of the specified bit
-    printf("The bit at position %d is %d\n", bitNumber, BitValue);
-
-    return 0;
-}
-
-/*-------------------------          Approach 2                  ------------------------*/
-/*---------------------------------------------------------------------------------------*/
-#include <stdio.h>
-
-int main() {
-    int number, bitNumber;
-
-    // Get the number from the user
-    printf("Enter a number: ");
-    scanf("%d", &number);
-
-    // Get the bit number from the user
-    printf("Enter the bit number: ");
-    scanf("%d", &bitNumber);
-
-    // Shifting 1 by the bitNumber positions to create a bitmask
-    int bitmask = 1 << bitNumber;
-
-    // Using bitwise AND to check if the bit is set or not
-    if ((number & bitmask) != 0) {
-        printf("The bit at position %udis 1\n", bitNumber);
+    // Check if two integer inputs are provided
+    if (scanf("%d %d", &num1, &num2) != 2) {
+        printf("Invalid Input! Try again.\n");
+        return 1;
     } else {
-        printf("The bit at position %d is 0\n", bitNumber);
+        primeBetweenInterval(num1, num2);
     }
 
     return 0;
 }
+
+// Function to find prime numbers between two given numbers
+void primeBetweenInterval(int a, int b) 
+{
+    int counter = 0 ;
+
+    printf("Prime Numbers between %d and %d are: ", a, b);
+
+    // Check if the first number is greater than the second, swap if needed
+    if (a > b)
+    {
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+
+    // Outer loop to iterate through the numbers within the interval
+    for (int i = a; i <= b; i++)
+    {
+        // Inner loop to find factors of the current number
+        for (int j = 1; j <= i; j++)
+        {
+            if (i % j == 0)
+            {
+                counter++; // Count how many factors this number has
+            }
+        }
+        // Check if the number is prime (having exactly 2 factors)
+        if (counter == 2)
+        {
+            printf("%d ", i);
+        }
+
+        counter = 0; // Reset the counter for the next iteration
+    }
+    printf("\n");
+}
+
+
+
+
+
+

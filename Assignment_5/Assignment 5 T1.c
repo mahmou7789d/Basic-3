@@ -25,111 +25,42 @@
 /*
 ==========================================================================================
 Diploma     :   BASIC03 - Eng. Amgad Samir
-Target      :   C Array
-Name        :   Assignment 7- Lecture 7 - Problem number 1
-Program     :   Write a C program to print the index of FIRST occurrence of 
-                a number in an array. Array index start from 0. If the item is not 
-                in the list print -1.
+Target      :   C Functions
+Name        :   Assignment 5 - Lecture 5 - Problem number 1
+Program     :   C Function to prints the cube of any number
 Author      :   Mahmoud Hamed
 ==========================================================================================
-Description :   (1) Write a C program to print the index of FIRST occurrence of 
-                    a number in an array. Array index start from 0. If the item is not 
-                    in the list print -1.
-
+Description :   (1) Write a C Function that prints the cube of any number
 +
 ==========================================================================================
 */
 
-/*-------------------------          Approach 1                  ------------------------*/
+/*-------------------------                                      ------------------------*/
 /*---------------------------------------------------------------------------------------*/
-
-
-
+/*  Write a C Function that prints the cube of any number */
 #include <stdio.h>
 
-int findFirstOccurrence(int arr[], int size, int target) {
-    int index = -1; // Initialize index to -1 (not found)
-    
-    for (int i = 0; i < size; i++) {
-        if (arr[i] == target) {
-            index = i; // Update index if target is found
-            break;     // Break the loop since we only need the first occurrence
-        }
-    }
-    
-    return index;
+// Function to calculate the cube of a number and handle overflow cases
+long long int calculateCube(int number) {
+    // Calculate the cube using explicit type casting to long long int
+    // to ensure that the result does not overflow for large inputs
+    return (long long int)number * number * number;
 }
 
 int main() {
-    int size, target;
-
-    printf("Enter the size of the array: ");
-    scanf("%d", &size);
-
-    int arr[size];
-
-    printf("Enter the elements of the array:\n");
-    for (int i = 0; i < size; i++) {
-        scanf("%d", &arr[i]);
-    }
-
-    printf("Enter the target number to search for: ");
-    scanf("%d", &target);
-
-    int index = findFirstOccurrence(arr, size, target);
-
-    if (index != -1) {
-        printf("The first occurrence of %d is at index %d.\n", target, index);
-    } else {
-        printf("The number %d is not in the array.\n", target);
-    }
-
-    return 0;
-}
-
-
-
-/*-------------------------          Approach 2                  ------------------------*/
-/*---------------------------------------------------------------------------------------*/
-#include <stdio.h>
-
-int findFirstOccurrence(int arr[], int size, int target) {
-    int index = 0;
+    int num;
     
-    while (index < size && arr[index] != target) {
-        index++;
-    }
+    // Prompt the user to enter a number
+    printf("Enter a number: ");
     
-    if (index == size) {
-        return -1;  // Target not found
-    } else {
-        return index; // Index of the first occurrence
-    }
-}
+    // Read the input number from the user
+    scanf("%d", &num);
 
-int main() {
-    int size, target;
+    // Call the calculateCube function to compute the cube
+    long long int cube = calculateCube(num);
+    
+    // Display the result with proper formatting
+    printf("The cube of %d is %lld\n", num, cube);
 
-    printf("Enter the size of the array: ");
-    scanf("%d", &size);
-
-    int arr[size];
-
-    printf("Enter the elements of the array:\n");
-    for (int i = 0; i < size; i++) {
-        scanf("%d", &arr[i]);
-    }
-
-    printf("Enter the target number to search for: ");
-    scanf("%d", &target);
-
-    int index = findFirstOccurrence(arr, size, target);
-
-    if (index != -1) {
-        printf("The first occurrence of %d is at index %d.\n", target, index);
-    } else {
-        printf("The number %d is not in the array.\n", target);
-    }
-
-    return 0;
+    return 0; // Indicate successful completion of the program
 }
