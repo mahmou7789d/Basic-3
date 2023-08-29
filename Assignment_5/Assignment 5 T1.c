@@ -35,13 +35,13 @@ Description :   (1) Write a C Function that prints the cube of any number
 ==========================================================================================
 */
 
-/*-------------------------                                      ------------------------*/
+/*-------------------------             Approach 1               ------------------------*/
 /*---------------------------------------------------------------------------------------*/
-/*  Write a C Function that prints the cube of any number */
 #include <stdio.h>
 
 // Function to calculate the cube of a number and handle overflow cases
-long long int calculateCube(int number) {
+long long int calculateCube(int number) 
+{
     // Calculate the cube using explicit type casting to long long int
     // to ensure that the result does not overflow for large inputs
     return (long long int)number * number * number;
@@ -54,7 +54,11 @@ int main() {
     printf("Enter a number: ");
     
     // Read the input number from the user
-    scanf("%d", &num);
+    if (scanf("%d", &num) != 1)
+    {
+        printf("Invalid Input");
+        return 1;
+    }
 
     // Call the calculateCube function to compute the cube
     long long int cube = calculateCube(num);
@@ -63,4 +67,13 @@ int main() {
     printf("The cube of %d is %lld\n", num, cube);
 
     return 0; // Indicate successful completion of the program
+}
+
+/*-------------------------             Approach 2               ------------------------*/
+/*---------------------------------------------------------------------------------------*/
+
+// Function to calculate the cube of a number and handle overflow cases
+long long int calculateCube(long long int number) 
+{
+    return number * number * number;
 }

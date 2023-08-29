@@ -25,134 +25,103 @@
 /*
 ==========================================================================================
 Diploma     :   BASIC03 - Eng. Amgad Samir
-Target      :   C Array
-Name        :   Assignment 7- Lecture 7 - Problem number 2
-Program     :   Write a C function to return the index of LAST occurrence of
-                a number in a given array. Array index start from 0. If the item
-                is not in the list return -1
+Target      :   C Algorithm
+Name        :   Assignment 10 - Lecture 10 - Problem number 2
+Program     :   Write a C function that use the bubble sorting algorithm to sort an integer array in descending order.
 Author      :   Mahmoud Hamed
 ==========================================================================================
-Description :   (2) Write a C function to return the index of LAST occurrence of
-                    a number in a given array. Array index start from 0. If the item
-                    is not in the list return -1
+Description :   (2) Write a C function that use the bubble sorting algorithm to sort an integer array in descending order.
 
 +
 ==========================================================================================
 */
 
-/*-------------------------          Approach 1                  ------------------------*/
+/*-------------------------                                      ------------------------*/
 /*---------------------------------------------------------------------------------------*/
-/*****************************************************************************************
- * in this approach we start searching about target from the start so we return the last updated
- * value of position 
- * */
+
+
 #include <stdio.h>
 
-int lastIndexOf(int arr[], int size, int target) 
+// Function to perform bubble sort in descending order
+void bubbleSortDescending(int arr[], int size) 
 {
-    int lastIndex = -1;  // Initialize to -1 in case the target is not found
+    // Outer loop: Controls the number of passes through the array
+    for (int i = 0; i < size - 1; i++) 
+    {
+        // Inner loop: Compares adjacent elements and swaps if necessary
+        // The '-i' optimizes the loop, as the largest i elements are already in place
+        for (int j = 0; j < size - i - 1; j++) 
+        {
+            // Compare the current element with the next element
+            if (arr[j] < arr[j + 1]) 
+            {
+                // Swap the elements if the current element is smaller than the next
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
 
+int main() {
+    int size = 6;
+
+    int arr[size];
+
+    printf("Enter the elements of the array:\n");
+    for (int i = 0; i < size; i++) {
+        if (scanf("%d", &arr[i]) != 1)
+        {
+        	printf("Invalid input");
+        	return 1;
+        }
+    } 
+
+    printf("Original array: ");
+    // Print the elements of the original array
     for (int i = 0; i < size; i++) 
     {
-        if (arr[i] == target) 
-        {
-            lastIndex = i;  // Update lastIndex when target is found
-        }
+        printf("%d ", arr[i]);
     }
 
-    return lastIndex;
-}
+    // Call the bubbleSortDescending function to sort the array in descending order
+    bubbleSortDescending(arr, size);
 
-int main() {
-    int length=5;
-    int target ;
-    int arr1[length];
-    printf("Enter elements for arr1:\n");
-    for (int i = 0; i < length; i++) 
+    printf("\nSorted array in descending order: ");
+    // Print the elements of the sorted array
+    for (int i = 0; i < size; i++) 
     {
-        printf("Enter element %d: ", i + 1);
-        if (scanf("%d", &arr1[i]) != 1)
-        {
-            printf("Invalid Input ");
-            return 1;
-        }
-    }
-    printf("Enter Your target:\n");
-    if (scanf("%d", target) != 1)
-        {
-            printf("Invalid input ");
-            return 1;
-        }
-    // int arr[] = {2, 4, 6, 8, 4, 10, 4, 12};
-    // int size = sizeof(arr) / sizeof(arr[0]);
-    // int target = 4;
-
-    int lastIndex = lastIndexOf(arr, size, target);
-
-    if (lastIndex != -1) 
-    {
-        printf("Last occurrence of %d is at index %d\n", target, lastIndex);
-    } 
-    else {
-        printf("%d is not found in the array\n", target);
+        printf("%d ", arr[i]);
     }
 
-    return 0;
+    return 0;  // Indicate successful program execution
 }
 
 
-/*-------------------------          Approach 2                  ------------------------*/
-/*---------------------------------------------------------------------------------------*/
-/*****************************************************************************************
- * in this approach we start searching about target from the end so we return position directly
- * */
-#include <stdio.h>
+/**********************************************************************************************************************************/
+/**********************************************************************************************************************************/
+/**********************************************************************************************************************************/
+/**********************************************************************************************************************************/
+/**********************************************************************************************************************************/
+/**********************************************************************************************************************************/
+/**********************************************************************************************************************************
+ * Learn more 
+ **/
 
-int lastIndexOf(int arr[], int size, int target) 
+void bubbleSortAscending(int arr[], int size) 
 {
-    for (int i = size - 1; i >= 0; i--) 
+    for (int i = 0; i < size - 1; i++) 
     {
-        if (arr[i] == target) 
+        for (int j = 0; j < size - i - 1; j++) 
         {
-            return i;  // Return the index when target is found
+            if (arr[j] > arr[j + 1]) 
+            {
+                // Swap the elements
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
         }
     }
-
-    return -1;  // Return -1 if target is not found
-}
-
-int main() {
-    int length=5;
-    int target ;
-    int arr1[length];
-    printf("Enter elements for arr1:\n");
-    for (int i = 0; i < length; i++) 
-    {
-        printf("Enter element %d: ", i + 1);
-        if (scanf("%d", &arr1[i]) != 1)
-        {
-            printf("Invalid Input ");
-            return 1;
-        }
-    }
-    printf("Enter Your target:\n");
-    if (scanf("%d", target) != 1)
-        {
-            printf("Invalid input ");
-            return 1;
-        }
-    // int arr[] = {2, 4, 6, 8, 4, 10, 4, 12};
-    // int size = sizeof(arr) / sizeof(arr[0]);
-    // int target = 4;
-
-    int lastIndex = lastIndexOf(arr, size, target);
-
-    if (lastIndex != -1) 
-    {
-        printf("Last occurrence of %d is at index %d\n", target, lastIndex);
-    } else {
-        printf("%d is not found in the array\n", target);
-    }
-
-    return 0;
 }

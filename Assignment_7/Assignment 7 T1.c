@@ -116,7 +116,8 @@ int main() {
     int arr[size];
 
     printf("Enter the elements of the array:\n");
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) 
+    {
         scanf("%d", &arr[i]);
     }
 
@@ -125,7 +126,8 @@ int main() {
 
     int index = findFirstOccurrence(arr, size, target);
 
-    if (index != -1) {
+    if (index != -1)
+    {
         printf("The first occurrence of %d is at index %d.\n", target, index);
     } else {
         printf("The number %d is not in the array.\n", target);
