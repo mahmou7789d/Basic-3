@@ -157,3 +157,49 @@ int getLength(char arr[]) {
 }
 
 
+// --------------------------------------------------------------------------------------
+
+/*Given a string, create a new string made up of its last two
+letters, reversed and separated by a space, the word is “bat”.
+Return string contains ”t a”.*/
+
+#include <stdio.h>
+#include <string.h>
+
+char* ReversedTwo(char* arr);
+
+int main()
+{
+    int n;
+    char arr[20], *ptr;
+    printf("Enter a string not less than two words: ");
+    scanf("%s", arr);
+    n = strlen(arr);
+    while(n <= 1)
+    {
+        printf("Invalid String!\n");
+        printf("Enter a string not less than two words: ");
+        scanf("%s", arr);
+        n = strlen(arr);
+    }
+    ptr = ReversedTwo(arr);
+    printf("%s", ptr);
+
+}
+
+char* ReversedTwo(char* arr)
+{
+    int i;
+    char a, b;
+    static char x[3];
+    while(arr[i+1] != '\0')
+    {
+        a = arr[i];
+        b = arr[i+1];
+        i++;
+    }
+    x[0] = b;
+    x[1] = ' ';
+    x[2] = a;
+    return x;
+}

@@ -272,3 +272,61 @@ int main() {
 // If no repeated characters are found during the execution of both loops, 
 // the function returns 1 to indicate that all characters in the string are distinct.
 // This approach has a time complexity of O(n^2)
+
+
+/*-------------------------          Approach 4                  ------------------------*/
+/*---------------------------------------------------------------------------------------*/
+#include <stdio.h>
+
+// Function prototype to check if a character is repeated in the array
+int check_if_char_is_repeated(char arr[]);
+
+int main() {
+    // Declare an array of characters with a size of 10
+    char array[10];
+
+    // Prompt the user to enter characters
+    printf("Enter characters:\n");
+
+    // Read input from the user and store it in the 'array' variable
+    fgets(array, sizeof(array), stdin);
+
+    // Call the function to check if any characters are repeated in the array
+    if (check_if_char_is_repeated(array)) {
+        printf("There is a repeated element.\n");
+    } else {
+        printf("There are no repeated elements.\n");
+    }
+
+    // The main function's return statement (implicitly returns 0)
+}
+
+// Function to check if any character in the given array is repeated
+int check_if_char_is_repeated(char arr[]) {
+    int c = 0;  // Initialize a counter variable to 0
+
+    // Loop through the characters in the array until a null character ('\0') is encountered
+    for (int i = 0; arr[i] != '\0'; i++) {
+        // If the current character is a space (' '), skip it and continue to the next character
+        if (arr[i] == ' ') {
+            continue;
+        }
+
+        // Nested loop to compare the current character with the remaining characters in the array
+        for (int j = i + 1; arr[j] != '\0'; j++) {
+            // Check if the XOR operation between the characters is zero, indicating a repeated character
+            if ((arr[i] ^ arr[j]) == 0) {
+                c = 1;  // Set the counter variable to 1 if a repeated character is found
+                break;  // Exit the inner loop
+            }
+        }
+
+        // If a repeated character was found, exit the outer loop
+        if (c == 1) {
+            break;
+        }
+    }
+
+    // Return the value of the counter (1 if repeated character found, 0 otherwise)
+    return c;
+}
