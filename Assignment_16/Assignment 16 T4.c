@@ -178,6 +178,104 @@ void Display_Information(Students *obj,uint8 size)
         /*nothing*/
     }
 }
+/************************************************************************************************************/
+#include <stdio.h>
+#include <string.h>
+
+// Function prototype for checking if a string contains only alphabetic characters and spaces.
+int IsAlphapet(char* str);
+
+// Define a structure to represent student information.
+typedef struct {
+    char name[20];  // Name of the student, up to 19 characters.
+    int roll;       // Roll number of the student.
+    float marks;    // Marks obtained by the student.
+} student;
+
+int main() {
+    student studentData[2]; // Declare a variable of type 'student' to store student information.
+    inputdata(&studentData,2);
+    printdata(studentData,2);
+    // Return 0 to indicate successful execution of the program.
+    return 0;
+}
+void inputdata(student *studentData,int size)
+{
+    for(int i=0;i<size;i++)
+    {
+        // Prompt the user to enter the student's name.
+    printf("Enter student name: ");
+    fflush(stdin);
+    // Read the student's name using scanf and allow spaces in the input.
+    scanf("%[^\n]s", ((studentData+i))->name);
+    //scanf("%[^\n]s", studentData[i].name);
+    // Clear the input buffer to prevent issues with subsequent input.
+    fflush(stdin);
+
+    // Check if the entered name contains only alphabetic characters and spaces.
+    if (IsAlphapet(((studentData+i))->name))
+    {
+        // Prompt the user to enter the student's roll number.
+        printf("Enter student roll number: ");
+        // Read and validate the student's roll number.
+        if (scanf(" %d", &(studentData+i)->roll) == 1)
+        {
+            // Prompt the user to enter the student's marks.
+            printf("Enter student Mark number: ");
+            // Read and validate the student's marks.
+            if (scanf("%f", &(studentData+i)->marks) == 1)
+            {
+
+            }
+            else
+            {
+                // Display an error message for invalid marks and return an error code (1).
+                printf("Invalid Mark Number\n");
+                return 1;
+            }
+        }
+        else
+        {
+            // Display an error message for invalid roll number and return an error code (1).
+            printf("Invalid Roll Number\n");
+            return 1;
+        }
+    }
+    else
+    {
+        // Display an error message for an invalid name and return an error code (1).
+        printf("Invalid Name\n");
+        return 1;
+    }
+    }
+}
+void printdata(student *studentData,int size)
+{
+    for(int i =0 ; i <size;i++)
+    {
+        // Display the student's information.
+        printf("Name: %s\n", (studentData+i)->name);
+        //printf("Name: %s\n", studentData[i].name);
+        printf("Roll Number: %d\n", (studentData+i)->roll);
+        printf("Marks: %.2f\n", (studentData+i)->marks);
+    }
+
+}
+// Function to check if a string contains only alphabetic characters and spaces.
+int IsAlphapet(char* str) {
+    int returnVal = 1; // Initialize the return value to true (1).
+
+    // Iterate through each character in the string.
+    for (int i = 0; str[i] != '\0'; i++) {
+        // Check if the character is not an alphabetic character (uppercase or lowercase) or a space.
+        if (!((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z') || str[i] == ' '))
+        {
+            returnVal = 0; // If any non-alphabetic character is found, set the return value to false (0).
+        }
+    }
+
+    return returnVal; // Return the final result: 1 if the string contains only alphabetic characters and spaces, 0 otherwise.
+}
 
 /**************************************************************************************************************/
 #include <stdio.h>

@@ -17,9 +17,7 @@ int main(){
 	
 	
 	/*
-	(3) C Function to calculate the difference between two time 
-        periods using structures.
-	
+	(3) C Function to calculate the difference between two time periods using structures.
 	*/
 	
 	time time_1;
