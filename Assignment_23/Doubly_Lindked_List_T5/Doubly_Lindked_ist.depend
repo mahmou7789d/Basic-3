@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1695818268 source:f:\eng amgad basic diploma\basic_3\assignment_model_answer_c\basic-3\assignment_23\doubly_lindked_ist\dll.c
+	<stdio.h>
+	<stdlib.h>
+	"STD_TYPES.h"
+	"DLL.h"
+
+1695812325 f:\eng amgad basic diploma\basic_3\assignment_model_answer_c\basic-3\assignment_23\doubly_lindked_ist\std_types.h
+
+1695815319 f:\eng amgad basic diploma\basic_3\assignment_model_answer_c\basic-3\assignment_23\doubly_lindked_ist\dll.h
+	"STD_TYPES.h"
+
+1695817759 source:f:\eng amgad basic diploma\basic_3\assignment_model_answer_c\basic-3\assignment_23\doubly_lindked_ist\main.c
+	<stdio.h>
+	<stdlib.h>
+	"STD_TYPES.h"
+	"DLL.h"
+

@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1695827142 source:f:\eng amgad basic diploma\basic_3\assignment_model_answer_c\basic-3\assignment_23\circular_linked_list\cll.c
+	<stdio.h>
+	<stdlib.h>
+	"STD_TYPES.h"
+	"CLL.h"
+
+1695820760 f:\eng amgad basic diploma\basic_3\assignment_model_answer_c\basic-3\assignment_23\circular_linked_list\std_types.h
+
+1695820822 f:\eng amgad basic diploma\basic_3\assignment_model_answer_c\basic-3\assignment_23\circular_linked_list\cll.h
+	"STD_TYPES.h"
+
+1695827079 source:f:\eng amgad basic diploma\basic_3\assignment_model_answer_c\basic-3\assignment_23\circular_linked_list\main.c
+	<stdio.h>
+	<stdlib.h>
+	"STD_TYPES.h"
+	"CLL.h"
+
