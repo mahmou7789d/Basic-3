@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1695705025 source:f:\eng amgad basic diploma\basic_3\assignment_model_answer_c\basic-3\assignment_21\single_linked_list.c\main.c
+	<stdio.h>
+	<stdlib.h>
+	"STD_TYPES.h"
+	"SLL.h"
+
+1695700454 f:\eng amgad basic diploma\basic_3\assignment_model_answer_c\basic-3\assignment_21\single_linked_list.c\std_types.h
+
+1695703207 f:\eng amgad basic diploma\basic_3\assignment_model_answer_c\basic-3\assignment_21\single_linked_list.c\sll.h
+	"STD_TYPES.h"
+
+1695704704 source:f:\eng amgad basic diploma\basic_3\assignment_model_answer_c\basic-3\assignment_21\single_linked_list.c\sll.c
+	<stdio.h>
+	<stdlib.h>
+	"SLL.h"
+	<stdio.h>
+
