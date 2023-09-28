@@ -31,7 +31,12 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="main.c">
+		<Unit filename="DLL.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="DLL.h" />
+		<Unit filename="STD_TYPES.h" />
+		<Unit filename="main_T2.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions />

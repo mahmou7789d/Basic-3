@@ -12,7 +12,7 @@ typedef struct dnode
 
 void DoubleList_DisplayList(DNode_t * start);
 uint8 DoubleList_Count_Nodes(DNode_t * start);
-sint8 DoubleList_Search(DNode_t * start,sint32 Data );
+sint8 DoubleList_Search(const DNode_t *start, sint32 Data);
 DNode_t* DoubleList_InsertAtbeginning(DNode_t * start,sint32 Data );
 DNode_t* DoubleList_InsertInEmpty (DNode_t *start , sint32 Data);
 void DoubleList_InsertAtEnd(DNode_t* start, sint32 Data);

@@ -598,37 +598,3 @@ SNode_t* singleListReturnMiddle(SNode_t *start)
 }
 /***************************************************************************************************/
 /***************************************************************************************************/
-sint32 SingleList_SumofList(SNode_t *start)
-{
-    SNode_t *ptr=(SNode_t *)malloc(sizeof(SNode_t));
-
-    sint32 sum =0;
-
-    ptr=start;
-    while(NULL != ptr)
-    {
-        sum+=ptr->Info;
-        ptr=ptr->Link ;
-    }
-    return sum;
-
-}
-
-sint32 SingleList_MaxDataInList(SNode_t *start)
-{
-    SNode_t *ptr=(SNode_t *)malloc(sizeof(SNode_t));
-
-    sint32 max =start->Info;
-
-    ptr=start;
-
-    while(NULL != ptr)
-    {
-        if((ptr->Info)>max)
-            max=ptr->Info;
-
-        ptr=ptr->Link ;
-    }
-    return max;
-
-}

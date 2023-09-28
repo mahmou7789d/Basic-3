@@ -71,40 +71,56 @@ uint8 DoubleList_Count_Nodes(DNode_t *start)
 /**************************************************************************************************************/
 /**************************************************************************************************************/
 /**************************************************************************************************************
-// Function: DoubleList_Count_Nodes
-// Description: Counts the number of nodes in a doubly linked list.
-// Parameters:
-//   start - A pointer to the start node of the doubly linked list.
-// Returns: The number of nodes in the list.
-**************************************************************************************************************/
-sint8 DoubleList_Search(DNode_t * start,sint32 Data )
+/**
+ * Searches for a specific data value within a doubly linked list and returns its position.
+ *
+ * This function searches for a given integer data value within a doubly linked list,
+ * starting from the specified head node. It returns the position (1-based) of the
+ * data value if found in the list or -1 if the data value is not found or if the list
+ * is empty.
+ *
+ * @param start The head of the doubly linked list. This is the starting point for
+ *              traversing the list. It is assumed that the doubly linked list is
+ *              properly constructed.
+ *
+ * @param Data  The data value to search for within the linked list.
+ *
+ * @return The position (1-based) of the data value if found in the linked list.
+ *         If the data value is not found or if the list is empty, the function returns -1.
+ *
+ * @note This function does not modify the structure of the linked list; it is a
+ *       read-only operation that searches for a specific data value.
+ */
+/**************************************************************************************************************/
+sint8 DoubleList_Search(const DNode_t *start, sint32 Data)
 {
-    if(start==NULL)
+    if (start == NULL)
     {
-        printf("List is empty .\n");
-        return -1 ;
-    }
-    else
-    {
-        uint8 counter=1u;
-        DNode_t *ptr=start;
-
-        while(ptr != NULL && (ptr->Info!=Data))
-        {
-            counter++;
-            ptr=ptr->Next;
-        }
-        if(ptr != NULL)
-        {
-            return counter;
-        }
-        else
-        {
-            return -1;
-        }
+        // Handle the case when the doubly linked list is empty.
+        printf("List is empty.\n");
+        return -1;
     }
 
+    uint8 counter = 1u;
+    const DNode_t *current = start;
+
+    // Traverse the doubly linked list while keeping track of the position.
+    while (current != NULL && (current->Info != Data))
+    {
+        counter++;
+        current = current->Next;
+    }
+
+    if (current != NULL)
+    {
+        // If the data value is found, return its position.
+        return counter;
+    }
+
+    // If the data value is not found or if the list is empty, return -1.
+    return -1;
 }
+
 /**************************************************************************************************************/
 /**************************************************************************************************************/
 /**************************************************************************************************************
@@ -223,12 +239,25 @@ void DoubleList_InsertAtEnd(DNode_t* start, sint32 Data)
 /**************************************************************************************************************/
 /**************************************************************************************************************/
 /**************************************************************************************************************
-// Function: DoubleList_createNodeList
-// Description: This function creates a doubly linked list based on user input. It prompts the user to enter
-//              the number of nodes they want in the list and the data for each node.
-// Parameters: None
-// Returns: A pointer to the start node of the created list.
-**************************************************************************************************************/
+/**
+ * Function: DoubleList_createNodeList
+ * Description: This function creates a doubly linked list based on user input. It prompts the user to enter
+ *              the number of nodes they want in the list and the data for each node.
+ *
+ *              The function ensures that the user inputs a positive integer for the number of nodes.
+ *              It then collects data for each node from the user, creating and linking nodes as needed.
+ *
+ * Parameters: None
+ *
+ * Returns: A pointer to the start node of the created doubly linked list. If the user specifies zero nodes,
+ *          the function returns a NULL pointer, indicating an empty list.
+ *
+ * Note: The function dynamically allocates memory for each node based on the user's input and constructs
+ *       the doubly linked list. It is the responsibility of the caller to free the memory allocated for
+ *       the list when it is no longer needed to prevent memory leaks.
+ *
+ */
+/**************************************************************************************************************/
 DNode_t* DoubleList_createNodeList(void)
 {
     sint32 n; // Variable to store the number of nodes entered by the user
@@ -264,16 +293,32 @@ DNode_t* DoubleList_createNodeList(void)
 
     return start; // Return a pointer to the start node of the created list
 }
+
 /**************************************************************************************************************/
 /**************************************************************************************************************/
 /**
  * Inserts a new node with a specified value after a node with a particular value
  * in a doubly linked list.
  *
+ * This function searches for a node in the doubly linked list with a specified
+ * `ParticularValue`. If found, it inserts a new node with the specified `NewNodeValue`
+ * immediately after the found node. If the specified value is not found, or if memory
+ * allocation for the new node fails, appropriate error messages are displayed.
+ *
  * @param start          Pointer to the head of the doubly linked list.
  * @param ParticularValue The value after which the new node should be inserted.
  * @param NewNodeValue    The value to be stored in the new node.
+ *
+ * @note This function modifies the structure of the doubly linked list by inserting
+ *       a new node. It is the responsibility of the caller to ensure proper memory
+ *       management (e.g., freeing memory) when the list is no longer needed.
+ *
+ * Example Usage:
+ *    DNode_t* myList = DoubleList_createNodeList(); // Create a doubly linked list
+ *    DoubleList_InsertAfterNodeWithParticularValue(myList, 5, 10); // Insert 10 after node with value 5
+ *    // myList now contains the modified doubly linked list.
  */
+/**************************************************************************************************************/
 void DoubleList_InsertAfterNodeWithParticularValue(DNode_t *start,sint32 ParticularValue,sint32 NewNodevalue)
 {
     // Check if the list is empty
@@ -325,116 +370,3 @@ void DoubleList_InsertAfterNodeWithParticularValue(DNode_t *start,sint32 Particu
 }
 
 
-DNode_t* DoubleList_InsertBeforeNodeWithParticularValue(DNode_t *start,sint32 ParticularValue,sint32 NewNodevalue)
-{
-    if(start==NULL)
-    {
-        printf("List is empty .\n");
-    }
-    else
-    {
-        if(start->Info==ParticularValue)
-        {
-            start=DoubleList_InsertAtbeginning(start,NewNodevalue);
-        }
-        else
-        {
-            DNode_t * ptr=(DNode_t*)malloc(sizeof(DNode_t));
-            DNode_t * NewPtr=(DNode_t*)malloc(sizeof(DNode_t));
-            ptr=start;
-
-            while((NULL != ptr) && ptr->Info!=ParticularValue)
-            {
-                ptr=ptr->Next;
-            }
-
-            if(NULL != ptr)
-            {
-
-
-                NewPtr->Info=NewNodevalue;
-
-                NewPtr->Next=ptr;
-                NewPtr->Prev=ptr->Prev;
-
-                ptr->Prev->Next=NewPtr;
-                ptr->Prev=NewPtr;
-            }
-            else
-            {
-                printf("%d not found in List",ParticularValue);
-            }
-        }
-    }
-    return start;
-}
-DNode_t* SingleList_DeleteCertainNodeInList(DNode_t *start,uint8 Delnode)
-{
-
-    DNode_t * ptr=(DNode_t*)malloc(sizeof(DNode_t));
-    DNode_t * temp;
-    uint8 counter=1;
-    if(Delnode==1 && start->Next==NULL)
-    {
-        temp=start;
-        start=NULL;
-        free(temp);
-    }
-    else if(Delnode==1)
-    {
-        temp=start;
-        start=start->Next;
-        start->Prev=NULL;
-        free(temp);
-    }
-    else
-    {
-
-        ptr=start;
-        while(ptr!=NULL)
-        {
-            if(counter == Delnode && ptr->Next==NULL)
-            {
-                temp=ptr;
-                ptr->Prev->Next=NULL;
-                free(temp);
-                break;
-            }
-            else if(counter == Delnode)
-            {
-                temp = ptr;
-                ptr->Prev->Next = ptr->Next;
-                ptr->Next->Prev = ptr->Prev;
-                free(temp);
-                break;
-            }
-            counter++;
-            ptr=ptr->Next;
-        }
-        if(ptr==NULL)
-        {
-            printf("Node %d not found in List\n",Delnode);
-        }
-
-    }
-    return start;
-}
-DNode_t * SingleList_ReverseList(DNode_t *start)
-{
-    DNode_t *temp, *curNode;
-
-    if(start != NULL)
-    {
-        curNode=start;
-        while(curNode!=NULL)
-        {
-            temp=curNode->Prev ;
-            curNode->Prev=curNode->Next;
-            curNode->Next=temp;
-
-            curNode=curNode->Prev;
-        }
-        start=temp->Prev;
-    }
-    return start;
-}

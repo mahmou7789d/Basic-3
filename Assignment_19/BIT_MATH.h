@@ -1,3 +1,6 @@
+
+
+
 #define SET_BIT(VAR, BIT_NUM) \
     do { \
         if ((BIT_NUM) >= 0 && (BIT_NUM) < sizeof(VAR) * 8) { \
@@ -49,7 +52,16 @@
 
 // -----------------------------------------------------------------
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #ifndef BIT_MATH_H
 #define BIT_MATH_H
 
@@ -214,8 +226,16 @@ int main() {
     return 0;
 }
 
-//----
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #ifndef BIT_MATH_H
 #define BIT_MATH_H
 
@@ -246,7 +266,73 @@ typedef union
 #define GET_BIT(VAR, BIT_NUM) (VAR.BitAccess.B ## BIT_NUM)
 
 #endif
+/*
+The provided code defines a set of macros and data structures for manipulating individual bits in an 8-bit variable. 
+It's a common practice in embedded systems programming to access and modify individual bits in hardware registers, 
+which often correspond to specific configuration settings or status flags.
 
+Here's a detailed explanation of each part of the code:
+
+1. **Header Guards**: 
+   #ifndef BIT_MATH_H
+   #define BIT_MATH_H
+
+   These lines prevent the contents of the header file from being included more than once in a single compilation unit. 
+   It's a standard practice in C and C++ to use header guards to prevent issues with multiple inclusions.
+
+2. **Data Type Definitions**:
+   typedef unsigned char uint8;
+
+   This line defines a new data type `uint8` as an alias for `unsigned char`. 
+   It's a common practice to use such typedefs to improve code readability and portability.
+
+3. **Bit Access Union**:
+   typedef union
+   {
+       struct
+       {
+           uint8 B0 : 1;
+           uint8 B1 : 1;
+           uint8 B2 : 1;
+           uint8 B3 : 1;
+           uint8 B4 : 1;
+           uint8 B5 : 1;
+           uint8 B6 : 1;
+           uint8 B7 : 1;
+       } BitAccess;
+       uint8 ByteAccess;
+   } Register;
+
+   This code defines a union called `Register`, which has two members: `BitAccess` and `ByteAccess`. 
+   
+   - `BitAccess` is a structure with eight individual bit fields (B0 to B7), each one bit wide. 
+      These bit fields represent the individual bits of an 8-bit value.
+   - `ByteAccess` is a `uint8` variable that provides access to the entire 8-bit value.
+
+   This union allows you to access the 8-bit value either as a whole (`ByteAccess`) or manipulate its individual bits (`BitAccess`).
+
+4. **Bit Manipulation Macros**:
+   #define SET_BIT(VAR, BIT_NUM) (VAR.BitAccess.B ## BIT_NUM = 1)
+   #define CLR_BIT(VAR, BIT_NUM) (VAR.BitAccess.B ## BIT_NUM = 0)
+   #define TOG_BIT(VAR, BIT_NUM) (VAR.BitAccess.B ## BIT_NUM = !(VAR.BitAccess.B ## BIT_NUM))
+   #define GET_BIT(VAR, BIT_NUM) (VAR.BitAccess.B ## BIT_NUM)
+   
+   These macros provide convenient ways to manipulate individual bits in an `Register` variable:
+   
+   - `SET_BIT(VAR, BIT_NUM)`: Sets the specified bit (`BIT_NUM`) to 1.
+   - `CLR_BIT(VAR, BIT_NUM)`: Clears (sets to 0) the specified bit (`BIT_NUM`).
+   - `TOG_BIT(VAR, BIT_NUM)`: Toggles (inverts) the specified bit (`BIT_NUM`).
+   - `GET_BIT(VAR, BIT_NUM)`: Retrieves the value (0 or 1) of the specified bit (`BIT_NUM`).
+
+   The macros use token concatenation (`##`) to concatenate the bit number (`BIT_NUM`) with the appropriate bit field (`B0`, `B1`, etc.) for bit manipulation.
+
+5. **Header Guard Closing Directive**:
+   #endif
+   This line closes the header guard, indicating the end of the header file.
+
+In summary, this code defines a set of macros and a union that allow for convenient manipulation of individual bits in an 8-bit variable. 
+It's commonly used in embedded systems and low-level programming for configuring hardware registers and dealing with binary flags.
+*/
 
 
 #include <stdio.h>
@@ -283,6 +369,7 @@ Bit 6: 0
 Bit 7: 0
 
 
+
 #include <stdio.h>
 #include "STD_Types.h"
 
@@ -313,7 +400,7 @@ int main() {
 
 
 
-// ------------------
+/*
 When using these macros to manipulate bits in shared memory or hardware registers, it's crucial to take precautions to prevent race conditions and ensure proper synchronization. 
 Here are some guidelines on how to do that:
 
@@ -355,7 +442,7 @@ It often contains information about synchronization and access requirements spec
 Remember that the exact approach you take will depend on your specific use case, the platform you're working on, 
 and the synchronization mechanisms available to you. Always prioritize safety and correctness 
 when manipulating bits in shared memory or hardware registers to avoid race conditions and ensure proper synchronization.
-
+*/
 
 
 
