@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1697129635 source:c:\users\mahmoudsaad\desktop\assignment_25\stacklinkedlist_t1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"STD_Types.h"
+	"StackLinkedList.h"
+
+1697128877 c:\users\mahmoudsaad\desktop\assignment_25\stacklinkedlist_t1\std_types.h
+
+1697128732 c:\users\mahmoudsaad\desktop\assignment_25\stacklinkedlist_t1\stacklinkedlist.h
+	"STD_TYPES.h"
+	"SLL.h"
+
+1697128781 source:c:\users\mahmoudsaad\desktop\assignment_25\stacklinkedlist_t1\sll.c
+	<stdio.h>
+	<stdlib.h>
+	"SLL.h"
+	<stdio.h>
+
+1697128741 c:\users\mahmoudsaad\desktop\assignment_25\stacklinkedlist_t1\sll.h
+	"STD_Types.h"
+
+1697129578 source:c:\users\mahmoudsaad\desktop\assignment_25\stacklinkedlist_t1\stacklinkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	"STD_Types.h"
+	"SLL.h"
+	"StackLinkedList.h"
+

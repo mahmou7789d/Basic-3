@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1697122637 source:c:\users\mahmoudsaad\desktop\assignment_25\queuelinkedlist_t2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"QueueLinkedList.h"
+
+1697122608 source:c:\users\mahmoudsaad\desktop\assignment_25\queuelinkedlist_t2\sll.c
+	<stdio.h>
+	<stdlib.h>
+	"SLL.h"
+
+1697122574 c:\users\mahmoudsaad\desktop\assignment_25\queuelinkedlist_t2\sll.h
+	"STD_TYPES.h"
+
+1697122463 c:\users\mahmoudsaad\desktop\assignment_25\queuelinkedlist_t2\std_types.h
+
+1697122616 source:c:\users\mahmoudsaad\desktop\assignment_25\queuelinkedlist_t2\queuelinkedlist.c
+	"STD_Types.h"
+	<stdio.h>
+	<stdlib.h>
+	"QueueLinkedList.h"
+	"SLL.h"
+
+1697132138 c:\users\mahmoudsaad\desktop\assignment_25\queuelinkedlist_t2\queuelinkedlist.h
+	"STD_Types.h"
+

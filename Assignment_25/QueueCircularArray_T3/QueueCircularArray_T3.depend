@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1697134225 source:c:\users\mahmoudsaad\desktop\assignment_25\queuecirculararray_t3\queuecirculararray.c
+	<stdio.h>
+	"QueueCircularArray.h"
+
+1697122048 c:\users\mahmoudsaad\desktop\assignment_25\queuecirculararray_t3\queuecirculararray.h
+
+1697122177 source:c:\users\mahmoudsaad\desktop\assignment_25\queuecirculararray_t3\main.c
+	<stdio.h>
+	<stdlib.h>
+	"QueueCircularArray.h"
+

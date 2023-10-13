@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1697118426 source:c:\users\mahmoudsaad\desktop\assignment_25\queuearray\main.c
+	<stdio.h>
+	<stdlib.h>
+	"QueueArray.h"
+
+1697118282 c:\users\mahmoudsaad\desktop\assignment_25\queuearray\queuearray.h
+
+1697118445 source:c:\users\mahmoudsaad\desktop\assignment_25\queuearray\queuearray.c
+	<stdio.h>
+	"QueueArray.h"
+

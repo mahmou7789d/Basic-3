@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1697123642 source:c:\users\mahmoudsaad\desktop\assignment_25\queuecircularlinkedlist_t4\main.c
+	<stdio.h>
+	<stdlib.h>
+	"STD_Types.h"
+	"QueueCircularLinkedList.h"
+	"CLL.h"
+
+1697131212 c:\users\mahmoudsaad\desktop\assignment_25\queuecircularlinkedlist_t4\std_types.h
+
+1697123258 c:\users\mahmoudsaad\desktop\assignment_25\queuecircularlinkedlist_t4\queuecircularlinkedlist.h
+	"STD_Types.h"
+
+1697123596 c:\users\mahmoudsaad\desktop\assignment_25\queuecircularlinkedlist_t4\cll.h
+	"STD_Types.h"
+
+1697123608 source:c:\users\mahmoudsaad\desktop\assignment_25\queuecircularlinkedlist_t4\queuecircularlinkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	"STD_Types.h"
+	"QueueCircularLinkedList.h"
+	"CLL.h"
+
+1697123584 source:c:\users\mahmoudsaad\desktop\assignment_25\queuecircularlinkedlist_t4\cll.c
+	<stdio.h>
+	<stdlib.h>
+	"STD_Types.h"
+	"CLL.h"
+

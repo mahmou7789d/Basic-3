@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1697199722 source:c:\users\mahmoudsaad\desktop\assignment_25\stackarray_t1\main.c
+	<stdio.h>
+	"STD_TYPES.h"
+	<stdlib.h>
+	"STD_Types.h"
+	"StackArray.h"
+	<stdio.h>
+	<stdlib.h>
+
+1697044237 c:\users\mahmoudsaad\desktop\assignment_25\stackarray_t1\std_types.h
+
+1697108764 c:\users\mahmoudsaad\desktop\assignment_25\stackarray_t1\stackarray.h
+
+1697198639 source:c:\users\mahmoudsaad\desktop\assignment_25\stackarray_t1\stackarray.c
+	<stdio.h>
+	"STD_Types.h"
+	"StackArray.h"
+	<stdbool.h>
+
